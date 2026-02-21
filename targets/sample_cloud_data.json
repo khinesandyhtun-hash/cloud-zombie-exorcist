@@ -1,0 +1,128 @@
+{
+  "ec2_instances": [
+    {
+      "InstanceId": "i-zombie001",
+      "InstanceType": "m5.xlarge",
+      "AverageCPU": 0.02,
+      "AverageNetworkIn": 500,
+      "DaysRunning": 45,
+      "HourlyCost": 0.192,
+      "Tags": {"Name": "dev-server-old", "Environment": "development"}
+    },
+    {
+      "InstanceId": "i-zombie002",
+      "InstanceType": "c5.2xlarge",
+      "AverageCPU": 0.05,
+      "AverageNetworkIn": 800,
+      "DaysRunning": 60,
+      "HourlyCost": 0.34,
+      "Tags": {"Name": "test-instance", "Environment": "testing"}
+    },
+    {
+      "InstanceId": "i-oversized001",
+      "InstanceType": "m5.4xlarge",
+      "AverageCPU": 0.18,
+      "AverageNetworkIn": 5000,
+      "DaysRunning": 30,
+      "HourlyCost": 0.768,
+      "Tags": {"Name": "app-server", "Environment": "production"}
+    },
+    {
+      "InstanceId": "i-normal001",
+      "InstanceType": "t3.medium",
+      "AverageCPU": 0.65,
+      "AverageNetworkIn": 15000,
+      "DaysRunning": 15,
+      "HourlyCost": 0.0416,
+      "Tags": {"Name": "web-server", "Environment": "production"}
+    }
+  ],
+  "ebs_volumes": [
+    {
+      "VolumeId": "vol-orphan001",
+      "State": "available",
+      "Size": 500,
+      "VolumeType": "gp2",
+      "DaysUnattached": 21,
+      "Tags": {"Name": "old-data-volume"}
+    },
+    {
+      "VolumeId": "vol-orphan002",
+      "State": "available",
+      "Size": 1000,
+      "VolumeType": "gp3",
+      "DaysUnattached": 45,
+      "Tags": {"Name": "migration-backup"}
+    },
+    {
+      "VolumeId": "vol-overprovisioned001",
+      "State": "in-use",
+      "Size": 200,
+      "VolumeType": "io2",
+      "IOPS": 10000,
+      "AverageIOPS": 1500,
+      "Tags": {"Name": "database-volume"}
+    }
+  ],
+  "snowflake_warehouses": [
+    {
+      "name": "WH_DEV_IDLE",
+      "size": "X-Large",
+      "state": "RUNNING",
+      "credits_used": 5.2,
+      "query_count": 2,
+      "hours_active": 3,
+      "analysis_period_days": 14,
+      "auto_suspend_minutes": null
+    },
+    {
+      "name": "WH_ANALYTICS_OVERSIZED",
+      "size": "2X-Large",
+      "state": "RUNNING",
+      "credits_used": 120,
+      "query_count": 450,
+      "hours_active": 180,
+      "analysis_period_days": 30,
+      "avg_credit_usage_per_hour": 0.67,
+      "auto_suspend_minutes": 300
+    },
+    {
+      "name": "WH_ETL_ACTIVE",
+      "size": "Large",
+      "state": "RUNNING",
+      "credits_used": 850,
+      "query_count": 2500,
+      "hours_active": 720,
+      "analysis_period_days": 30,
+      "avg_credit_usage_per_hour": 1.18,
+      "auto_suspend_minutes": 60
+    }
+  ],
+  "s3_buckets": [
+    {
+      "BucketName": "company-logs-archive",
+      "SizeGB": 5000,
+      "StorageClass": "STANDARD",
+      "DaysSinceLastAccess": 180,
+      "IncompleteUploads": 0,
+      "Tags": {"Environment": "production"}
+    },
+    {
+      "BucketName": "dev-uploads-temp",
+      "SizeGB": 250,
+      "StorageClass": "STANDARD",
+      "DaysSinceLastAccess": 120,
+      "IncompleteUploads": 45,
+      "IncompleteUploadSizeGB": 35,
+      "Tags": {"Environment": "development"}
+    },
+    {
+      "BucketName": "analytics-data-lake",
+      "SizeGB": 15000,
+      "StorageClass": "STANDARD",
+      "DaysSinceLastAccess": 95,
+      "IncompleteUploads": 0,
+      "Tags": {"Environment": "analytics"}
+    }
+  ]
+}

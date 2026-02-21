@@ -1,0 +1,30 @@
+{
+  "telegram": {
+    "bot_token": "",
+    "chat_ids": []
+  },
+  "aws": {
+    "region": "us-east-1",
+    "profile": null
+  },
+  "snowflake": {
+    "account": "",
+    "user": "",
+    "warehouse": "ACCOUNTADMIN"
+  },
+  "analyzer": {
+    "ec2_cpu_threshold": 0.10,
+    "ebs_unattached_days": 7,
+    "snowflake_idle_hours": 24,
+    "snowflake_oversized_threshold": 0.30
+  },
+  "reports_dir": "./reports",
+  "dry_run": true,
+  "auto_notify": true,
+  "backup_dir": "./backups",
+  "notification_settings": {
+    "send_daily_digest": true,
+    "send_on_critical_findings": true,
+    "critical_threshold_usd": 1000
+  }
+}
